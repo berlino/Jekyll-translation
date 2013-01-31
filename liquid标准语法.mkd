@@ -17,11 +17,13 @@ Hello{{ 'tobi' }}
 ```
 ##高级输出
 输出可以和过滤器一起使用。过滤器是一些简单的函数。第一个参数总会是过滤器左侧的输出。当有第二个过滤器的时候，那么第一个过滤器的输出就是第二个过滤器的输入（译者注：其实就相当于linux中的管道啊）
+
 ```liquid
 Hello{{ 'tobi' | upcase }}
 Hello tobi has {{ 'tobi' | size}}letters!
 Hello{{ '*tobi*'| textlize | upcase }}
-Hello{{ 'now' | date:"%Y %h" }}
+Hello{{ 'now' | date:"%Y %h }}
+```
 ###标准过滤器
 * `date` 将日期格式改变[语法规则]（http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012）
 * `capitalize` 将输入的句子大写
