@@ -1,0 +1,51 @@
+在liquid中有两种标记：Output和Tag
+*Output是用来处理文本信息的，形式如下：
+```liquid
+{{ matched pairs of curly brackets (ie,braces) }}
+```
+*Tag不是用来处理文本信息的，形式如下：
+```liquid
+{{% matchd pairs of curly brackets and percent signs %}}
+```
+##输出
+
+下面是一个简单的例子：
+```liquid
+Hello{{name}}
+Hello{{user.name}}
+Hello{{ 'tobi' }}
+```
+##高级输出
+输出可以和过滤器一起使用。过滤器是一些简单的函数。第一个参数总会是过滤器左侧的输出。当有第二个过滤器的时候，那么第一个过滤器的输出就是第二个过滤器的输入（译者注：其实就相当于linux中的管道啊）
+```liquid
+Hello{{ 'tobi' | upcase }}
+Hello tobi has {{ 'tobi' | size}}letters!
+Hello{{ '*tobi*'| textlize | upcase }}
+Hello{{ 'now' | date:"%Y %h" }}
+###标准过滤器
+* `date` 将日期格式改变[语法规则]（http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012）
+* `capitalize` 将输入的句子大写
+* `downcase`将输入的字符串转换为小写
+* `upcase`将输入的字符串转换为大写
+* `first`得到输入数组的第一个元素
+* `last`输入数组的最后一个元素
+* `join`将数组元素组合成一句话中间夹杂着特定的字符
+* `sort`排列数组
+* `map`按给定的性质组成一个数组
+* `size`返回数组的长度
+* `escape`对字符串进行编码
+* `escape_once`返回已经编码好的但是并不影响之前的编码
+* `strip_html`从字符串中将html去掉
+* `strip_newlines`从字符串中将换行符即（\n）
+* `newline_to_br`将换行符换成html的换行符（<br>）
+* `replace`将每一个出现的字符串都替换 *e.g* `
+##标签
+标签是为了让模板更有逻辑。新的标签会让编程更简单，所以我希望能得到更多的支持。
+
+下面是一些目前支持的标签：
+* **assign**将某个值赋值给某个变量
+* **capture**区块标签将文本赋值给变量
+* **comment**区块标签，对文本进行注释
+* **if**if语句
+* **include**应用另一个模板文件
+* **raw**暂时屏蔽tag处理功能
