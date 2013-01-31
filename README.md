@@ -1,12 +1,1 @@
-Raspberry
-=========
-
-my raspberry wiki
-
-Fresh man learns so hard.
-
-Could you tell me why?
-
-Yeah,that's it.
-
-Hi,github.
+我对Jekyll项目的翻译，多多指教。
