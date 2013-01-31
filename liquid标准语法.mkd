@@ -25,7 +25,7 @@ Hello{{ '*tobi*'| textlize | upcase }}
 Hello{{ 'now' | date:"%Y %h }}
 ```
 ###标准过滤器
-* `date` 将日期格式改变[语法规则]（http://liquid.rubyforge.org/classes/Liquid/StandardFilters.html#M000012）
+* `date` 将日期格式改变 [语法参照](http://liquid.rubyforge.org)
 * `capitalize` 将输入的句子大写
 * `downcase`将输入的字符串转换为小写
 * `upcase`将输入的字符串转换为大写
