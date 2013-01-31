@@ -1,0 +1,49 @@
+#Liuid扩展
+***
+Jekyll使用Liquid来处理模板文件。除了标准的liquid标签和过滤器，Jekyll加了一些不同的。
+
+##过滤器
+***
+###时间到XML架构
+将一个时间数据转换为XML格式如：  
+<code>{{ site.time | date_to_xmlschema }}</code> = > 2013-1-30T19:58
+###时间到字符串
+<code>{{ site.time | date_to_string }}</code> = > 17 NOV 2008
+###时间转换为长字符串
+<code>{{ site.time | date_to_long_string }}</code> = > 17 NOVEMBER 2008
+###XML编码
+<code>{{ page.content | xml_escape }}</code>
+###CGI编码
+<code>{{ "foo,bar;baz?" | cgi_escape }}</code>= > foo%2Cbar%3Bbaz%3F
+>终于明白网址中那么多%之类的奇怪字符，那是在传递参数吧应该。
+###字数
+<code>{{ page.content | number_to_sentence_string }}</code>=>1337
+###将词组成句
+<code>{{ page.tags | array_to_sentence_string }}</code>=> foo,bar, and baz
+###Textile化
+通过RedCloth将Textile格式的字符串转换为HTML
+<code>{{ page.excerpt | textilize }}</code>
+###Markdown化
+将Markdown转换为HTML格式
+<code>{{ page.excerpt | markdownfy }}</code>
+##标签
+###Include标签
+前文中已经讲到通过include来使用_includes这个文件夹中的内容。
+如{%include sig.textile%}
+###代码高亮
+Jekyll内置了通过Pyments对100多中语言的语法高亮。所以必须要安装pyments，并且需要在PATH中设置.
+比如:  
+<code>
+{% highlight ruby linenos %}  
+def foo  
+	puts 'foo'  
+end  
+{% endhighlight %}  
+</code>
+###行标
+highlight有第二个参数叫做linenos,这个参数会使代码段加上行标
+###Post Url
+包含一个站内的post直接   
+<pre>[Name of Link]({% post_url 2010-07-21-name-of-post %})</pre>
+
+
