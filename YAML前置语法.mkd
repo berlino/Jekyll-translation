@@ -1,0 +1,23 @@
+上文提到只要有前置语法的文件都会被Jekyll识别为特殊文件进行处理，前置语法的格式如下：
+<pre>---
+layout: post
+title: Blogging Like a Hacker
+---
+通过前置语法设置一些预定义的变量。这些变量包括：
+layout:
+指定特定的模板文件。  
+permalink:
+设置永久链接  
+published:
+是否发表  
+category/categories和tags
+指定文章的种类和标签  
+还有自定义变量：  
+每个在前置语法中但是没有被预定义得都会在转换时被送进liquid的模板文件，比如你设置了title,那么在模板文件中相应的就会有&lt;title&gt;{{ page.title }}&lt;/title&gt;
+还有一个date变量用来覆盖post名字中的时间，有利于post的排序。  
+
+
+</pre>
+&nbsp;
+
+&nbsp;
